@@ -6,7 +6,7 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 11:38:32 by asebaai           #+#    #+#             */
-/*   Updated: 2024/07/24 15:01:23 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/07/26 16:17:25 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,14 @@ void	ft_free(char **str)
 
 void	check_outfile(t_apa *pipex)
 {
-	pipex->outfile = open(pipex->av[4], O_TRUNC | O_CREAT | O_RDWR, 0644);
+	pipex->outfile = open(pipex->av[pipex->ac - 1], O_TRUNC | O_CREAT | O_RDWR, 0644);
 	if (pipex->outfile < 0)
 		p_werror(pipex->av, 1);
 	else
 	{
 		dup2(pipex->outfile, 1);
 		close(pipex->outfile);
+		close(pipex->fd[1]);
+		close(pipex->fd[0]);
 	}
 }

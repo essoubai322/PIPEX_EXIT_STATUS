@@ -1,0 +1,21 @@
+total 136
+-rw-r--r-- 1 asebaai 2019  5539 Jul 26 16:29 apa_dont_use.c
+-rw-r--r-- 1 asebaai 2019  2071 Jul 26 16:17 ft_check1.c
+-rw-r--r-- 1 asebaai 2019  6208 Jul 27 22:54 ft_check1.o
+-rw-r--r-- 1 asebaai 2019  1956 Jul 26 16:46 ft_check.c
+-rw-r--r-- 1 asebaai 2019  6320 Jul 27 22:54 ft_check.o
+-rw-r--r-- 1 asebaai 2019  1397 Jul 24 16:10 ft_error_fr.c
+-rw-r--r-- 1 asebaai 2019  4152 Jul 27 22:54 ft_error_fr.o
+-rw-r--r-- 1 asebaai 2019  2144 Jul 24 16:10 ft_split.c
+-rw-r--r-- 1 asebaai 2019  5752 Jul 27 22:54 ft_split.o
+-rw-r--r-- 1 asebaai 2019  2090 Jul 24 16:10 ft_utils.c
+-rw-r--r-- 1 asebaai 2019  5600 Jul 27 22:54 ft_utils.o
+-rw-r--r-- 1 asebaai 2019   641 Jul 26 16:29 main_dont_use.c
+-rwxrwxrwx 1 asebaai 2019   352 Jul 24 16:49 Makefile
+-rw-r--r-- 1 asebaai 2019     0 Jul 27 22:55 out
+-rw-r--r-- 1 asebaai 2019  5086 Jul 26 16:29 philo_dont_use.c
+-rwxr-xr-x 1 asebaai 2019 29784 Jul 27 22:54 pipex
+-rw-r--r-- 1 asebaai 2019  2528 Jul 27 12:34 pipex.c
+-rw-r--r-- 1 asebaai 2019  2086 Jul 26 16:07 pipex.h
+-rw-r--r-- 1 asebaai 2019  7088 Jul 27 22:54 pipex.o
+-rw-r--r-- 1 asebaai 2019   102 Jul 26 16:29 README.md

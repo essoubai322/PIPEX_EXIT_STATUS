@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/24 16:20:32 by asebaai           #+#    #+#             */
+/*   Updated: 2024/07/26 16:07:24 by asebaai          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PIPEX_H
 # define PIPEX_H
 
@@ -24,9 +36,8 @@ typedef struct s_apa
 	int		fd[2];
 	int		status;
 	int		flag;
+	int		ac;
 }			t_apa;
-
-// void	p_werror(char **err, int flag);
 
 void		ft_putstr_fd(char *s, int fd);
 int			werror(char *err);

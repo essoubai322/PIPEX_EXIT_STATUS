@@ -6,7 +6,7 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 11:37:06 by asebaai           #+#    #+#             */
-/*   Updated: 2024/07/24 14:54:25 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/07/26 16:46:55 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+
 void	get_cmd(t_apa *pipex)
 {
 	int		i;
@@ -51,7 +52,8 @@ void	p_werror(char **err, int flag)
 {
 	if (flag)
 	{
-		perror(err[4]);
+		while(*err && *(err + 1) && err++);
+		perror(*err);
 		exit(1);
 	}
 	else
@@ -71,6 +73,8 @@ void	check_infile(t_apa *pipex)
 		dup2(pipex->infile, 0);
 		dup2(pipex->fd[1], 1);
 		close(pipex->infile);
+		close(pipex->fd[1]);
+		close(pipex->fd[0]);
 	}
 }
 
@@ -80,6 +84,7 @@ char	**get_args(char *cmd)
 	char	**args;
 
 	i = 0;
+	args = NULL;
 	args = ft_split(cmd, ' ');
 	return (args);
 }

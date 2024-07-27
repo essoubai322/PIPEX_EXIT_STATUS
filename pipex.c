@@ -6,7 +6,7 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 05:54:28 by asebaai           #+#    #+#             */
-/*   Updated: 2024/07/24 15:01:13 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/07/27 12:34:31 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,16 @@ void	ft_processing(t_apa *pipex, int i)
 		check_infile(pipex);
 		find_cmd(pipex, i);
 	}
-	else
+	else if(i == pipex->ac - 4)
 	{
 		check_outfile(pipex);
+		find_cmd(pipex, i);
+	}
+	else
+	{
+		dup2(pipex->fd[1], 1);
+		close(pipex->fd[1]);
+		close(pipex->fd[0]);
 		find_cmd(pipex, i);
 	}
 }
@@ -74,7 +81,7 @@ void	get_start(t_apa *pipex)
 	int	i;
 
 	i = 0;
-	while (i < 2)
+	while (i < pipex->ac - 3)
 	{
 		pipe(pipex->fd);
 		ft_process(pipex, i);
@@ -90,15 +97,16 @@ int	main(int ac, char **av, char **envp)
 	i = 0;
 	pipex.envp = envp;
 	pipex.av = av;
+	pipex.ac = ac;
 	pipex.cmd_args = NULL;
 	pipex.cmd = NULL;
 	pipex.paths = NULL;
 	pipex.flag = 0;
-	if (ac != 5)
-		return (werror("ARGS not enough ajmi! \n"));
+	if (ac < 5)
+		return (werror("ARGS not enough \n"));
 	get_cmd_paths(&pipex);
 	get_start(&pipex);
-	while (i < 2)
+	while (i < pipex.ac - 3)
 	{
 		waitpid(pipex.pid[i], &pipex.status, 0);
 		i++;
